@@ -233,8 +233,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409486402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 1.30271696e-08}
+  m_LocalPosition: {x: 1.5, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -274,8 +274,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1798124137}
+  - 114: {fileID: 1798124138}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: DecorativeVariables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,6 +294,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1798124138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1798124136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621611a56b57b4fca9b589391d24cbb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatValue: 0
+  intValue: 0
+  spaceUpThere: 
+  dontForget: 
+  textArea: 
+  multiLineString: 
+  notShownInEditor: 
 --- !u!1 &1905188258
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,9 +347,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2007088265}
+  - 114: {fileID: 2007088266}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: CustomInspector
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,3 +367,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &2007088266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007088264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d0d45811dfa4fe0a4a85a8744768ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customClass:
+    name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0
+  customClassList:
+  - name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0
+  - name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0
+  - name: ASdas
+    color: {r: 1, g: .992647052, b: .992647052, a: 0}
+    state: 0
+  - name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0
+  - name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0
