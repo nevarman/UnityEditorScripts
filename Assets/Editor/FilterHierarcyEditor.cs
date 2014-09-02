@@ -45,6 +45,7 @@ public class FilterHierarcyEditor : EditorWindow {
 		}
 
 		EditorGUILayout.EndHorizontal();
+
 	}
 
 	void selectAll ()
