@@ -233,8 +233,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409486402}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 1.30271696e-08}
-  m_LocalPosition: {x: 1.5, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -383,18 +383,9 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 0}
     state: 0
   customClassList:
-  - name: 
-    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: 1
+    color: {r: .141176477, g: .0862745121, b: .486274511, a: 0}
     state: 0
-  - name: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    state: 0
-  - name: ASdas
-    color: {r: 1, g: .992647052, b: .992647052, a: 0}
-    state: 0
-  - name: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    state: 0
-  - name: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    state: 0
+  - name: 2
+    color: {r: 1, g: 0, b: 0, a: 0}
+    state: 9
