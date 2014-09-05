@@ -6,7 +6,7 @@ class MainCameraIcon
 {
 	static Texture2D texture;
 	static int[] id;
-	
+
 	static MainCameraIcon ()
 	{
 		// Init
@@ -17,6 +17,7 @@ class MainCameraIcon
 	
 	static void onUpdate ()
 	{
+
 		Camera[] cam = Object.FindObjectsOfType(typeof(Camera)) as Camera[];
 		if(cam != null)
 		{
@@ -28,30 +29,34 @@ class MainCameraIcon
 		}
 
 	}
-	
+
 	static void hierarchWindowOnGUI (int instanceID, Rect selectionRect)
 	{
 		// place the icon to the right
 		Rect r = new Rect (selectionRect); 
 		r.x = r.width - 10;
 		r.width = 18;
-		foreach(int i in id)
+		if(id.Length>0)
 		{
-			if (i == instanceID) 
+			foreach(int i in id)
 			{
-				// Draw the texture if it's a cam (e.g.)
-				GUI.Label (r,texture); 
-				Object o = EditorUtility.InstanceIDToObject(instanceID);
-				// create a style with same padding as normal labels. 
-				GUIStyle style = new GUIStyle(((GUIStyle)"Hi Label")); 
-				style.padding.left = EditorStyles.label.padding.left;
-				
-				// choose new color 
-				style.normal.textColor = Color.red;
-				
-				// draw the new colored label over the old one 
-				GUI.Label(selectionRect, o.name, style); 
+				if (i == instanceID) 
+				{
+					// Draw the texture if it's a cam (e.g.)
+					GUI.Label (r,texture); 
+					Object o = EditorUtility.InstanceIDToObject(instanceID);
+					// create a style with same padding as normal labels. 
+					GUIStyle style = new GUIStyle(((GUIStyle)"Hi Label")); 
+					style.padding.left = EditorStyles.label.padding.left;
+					
+					// choose new color 
+					style.normal.textColor = Color.red;
+					
+					// draw the new colored label over the old one 
+					GUI.Label(selectionRect, o.name, style); 
+				}
 			}
 		}
+
 	}
 }

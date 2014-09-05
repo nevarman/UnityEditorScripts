@@ -11,6 +11,9 @@ public class CustomTransfromEditor : Editor {
 	float z;
 	Vector2 s ;
 
+	// store
+	static Vector3 savedPos,savedScale,savedRotation;
+
 	void OnEnable()
 	{
 		_transform = target as Transform;
@@ -29,13 +32,20 @@ public class CustomTransfromEditor : Editor {
 				_transform.localPosition = Vector3.zero;
 			}
 			position = EditorGUILayout.Vector3Field("Position", _transform.localPosition);
+			/// Copy button
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedPos = _transform.position;
+			}
+			/// Paste button
 			if(GUILayout.Button("P",GUILayout.Width(20f)))
 			{
 				regUndo();
-				position = Selection.activeTransform.localPosition;
+				position = savedPos;
 			}
 			GUILayout.EndHorizontal();
-			//ROTATE 
+
+			///ROTATE 
 			GUILayout.BeginHorizontal();
 			if(GUILayout.Button("R",GUILayout.Width(20f)))
 			{
@@ -43,14 +53,18 @@ public class CustomTransfromEditor : Editor {
 				_transform.localRotation = new Quaternion(0f,0f,0f,0f);
 			}
 			eulerAngles = EditorGUILayout.Vector3Field("Rotation", _transform.localEulerAngles);
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedRotation = _transform.localEulerAngles;
+			}
 			if(GUILayout.Button("P",GUILayout.Width(20f)))
 			{
 				regUndo();
-				eulerAngles = Selection.activeTransform.eulerAngles;
+				eulerAngles = savedRotation;
 			}
 			GUILayout.EndHorizontal();
 			
-			// SCALE
+			/// SCALE
 			GUILayout.BeginHorizontal();
 			if(GUILayout.Button("R",GUILayout.Width(20f)))
 			{
@@ -58,10 +72,14 @@ public class CustomTransfromEditor : Editor {
 				_transform.localScale = Vector3.one;
 			}
 			scale = EditorGUILayout.Vector3Field("Scale", _transform.localScale);
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedScale = _transform.localScale;
+			}
 			if(GUILayout.Button("P",GUILayout.Width(20f)))
 			{
 				regUndo();
-				scale = Selection.activeTransform.localScale;
+				scale = savedScale;
 			}
 			GUILayout.EndHorizontal();
 		}
@@ -75,8 +93,18 @@ public class CustomTransfromEditor : Editor {
 			}
 			Vector2 p = EditorGUILayout.Vector2Field("Position", new Vector2(_transform.localPosition.x,_transform.localPosition.y));
 			position = new Vector3(p.x,p.y,0f);
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedPos = _transform.position;
+			}
+			if(GUILayout.Button("P",GUILayout.Width(20f)))
+			{
+				regUndo();
+				position = savedPos;
+			}
 			GUILayout.EndHorizontal();
-			//ROTATE 
+
+			///ROTATE 
 			GUILayout.BeginHorizontal();
 			if(GUILayout.Button("R",GUILayout.Width(20f)))
 			{
@@ -85,9 +113,18 @@ public class CustomTransfromEditor : Editor {
 			}
 			z = EditorGUILayout.FloatField("Rotation",z);
 			eulerAngles = new Vector3(eulerAngles.x,eulerAngles.y,z);
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedRotation = _transform.localEulerAngles;
+			}
+			if(GUILayout.Button("P",GUILayout.Width(20f)))
+			{
+				regUndo();
+				eulerAngles = savedRotation;
+			}
 			GUILayout.EndHorizontal();
 			
-			// SCALE
+			/// SCALE
 			GUILayout.BeginHorizontal();
 			if(GUILayout.Button("R",GUILayout.Width(20f)))
 			{
@@ -96,28 +133,27 @@ public class CustomTransfromEditor : Editor {
 			}
 			s = EditorGUILayout.Vector2Field("Scale", new Vector2(_transform.localScale.x,_transform.localScale.y));
 			scale = new Vector3(s.x,s.y,1f);
+			if(GUILayout.Button("C",GUILayout.Width(20f)))
+			{
+				savedScale = _transform.localScale;
+			}
+			if(GUILayout.Button("P",GUILayout.Width(20f)))
+			{
+				regUndo();
+				scale = savedScale;
+			}
 			GUILayout.EndHorizontal();
 		}
 
-		// Normal editor changes
+//		 Normal editor changes
+		// This part is taken from wiki: http://wiki.unity3d.com/index.php/TransformInspector
 		if (GUI.changed)
 		{
 			regUndo();
 			_transform.localPosition = FixIfNaN(position);
-			_transform.localEulerAngles = FixIfNaN(eulerAngles);
+			_transform.eulerAngles = FixIfNaN(eulerAngles);
 			_transform.localScale = FixIfNaN(scale);
 		}
-
-		// Copy button
-		if(GUILayout.Button("Copy Transfrom From Selection"))
-		{
-			regUndo();
-			Transform t= Selection.activeTransform;
-			_transform.localPosition = t.localPosition;
-			_transform.localRotation = t.localRotation;
-			_transform.localScale = t.localScale;
-		}
-		EditorGUI.indentLevel = 0;
 	}
 	
 	private Vector3 FixIfNaN(Vector3 v)
