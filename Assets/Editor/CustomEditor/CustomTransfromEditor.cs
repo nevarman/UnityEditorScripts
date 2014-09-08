@@ -92,7 +92,7 @@ public class CustomTransfromEditor : Editor {
 				_transform.localPosition = Vector3.zero;
 			}
 			Vector2 p = EditorGUILayout.Vector2Field("Position", new Vector2(_transform.localPosition.x,_transform.localPosition.y));
-			position = new Vector3(p.x,p.y,0f);
+			position = new Vector3(p.x,p.y,_transform.localPosition.z);
 			if(GUILayout.Button("C",GUILayout.Width(20f)))
 			{
 				savedPos = _transform.position;
@@ -111,8 +111,8 @@ public class CustomTransfromEditor : Editor {
 				regUndo();
 				_transform.localRotation = new Quaternion(0f,0f,0f,0f);
 			}
-			z = EditorGUILayout.FloatField("Rotation",z);
-			eulerAngles = new Vector3(eulerAngles.x,eulerAngles.y,z);
+			float rotz = EditorGUILayout.FloatField("Rotation",_transform.localEulerAngles.z);
+			eulerAngles = new Vector3(eulerAngles.x,eulerAngles.y,rotz);
 			if(GUILayout.Button("C",GUILayout.Width(20f)))
 			{
 				savedRotation = _transform.localEulerAngles;

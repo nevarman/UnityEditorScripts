@@ -27,10 +27,13 @@ public class CustomClasEditor : PropertyDrawer {
 		Rect colorRect = new Rect (position.x, position.y+textHeight , position.width/2, helpHeight);
 		Rect stateRect = new Rect (position.x+ position.width/2, position.y+ textHeight, position.width/2, helpHeight);
 		// Draw fields - passs GUIContent.none to each so they are drawn without labels
-		EditorGUI.PropertyField (stateRect, name, GUIContent.none);
-		EditorGUI.PropertyField (colorRect,color, GUIContent.none);
-//		EditorGUI.PropertyField (stateRect, property.FindPropertyRelative ("state"), GUIContent.none);		
-		EditorGUI.IntSlider(nameRect,state,0,25);
+		if(name != null)
+			EditorGUI.PropertyField (stateRect, name, GUIContent.none);
+		if(color != null)
+			EditorGUI.PropertyField (colorRect,color, GUIContent.none);
+//		EditorGUI.PropertyField (stateRect, property.FindPropertyRelative ("state"), GUIContent.none);	
+		if(state != null)
+			EditorGUI.IntSlider(nameRect,state,0,25);
 
 
 //
