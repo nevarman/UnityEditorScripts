@@ -110,8 +110,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 737551085}
   - 33: {fileID: 737551088}
-  - 65: {fileID: 737551087}
   - 23: {fileID: 737551086}
+  - 114: {fileID: 737551089}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -151,18 +151,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &737551087
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 737551084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &737551088
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -170,6 +158,43 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737551084}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &737551089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 737551084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf6aaa483d4944d2aee810f97463b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchAction:
+    drag: 1
+    smoothDrag: 1
+    smoothFactor: 10
+    dragAxis: 0
+    onDragScale: {x: 1, y: 1, z: 1}
+    useWallHit: 0
+    wallHitTreshold: .100000001
+    layer:
+      serializedVersion: 2
+      m_Bits: 0
+    rotate: 1
+    rotateSpeed: 1
+    rotateTreshold: 10
+    rotateOnTouch: 0
+    rotateTouchEndTime: 0
+    rotateAxis: 0
+    scale: 1
+    scaleAxis: 0
+    scaleBetween: {x: .5, y: 2}
+    scaleTreshold: 10
+    scaleMultiplier: .5
+    touchOnScale: 0
+  worldMode: 0
+  safeClick: 1
+  safeClickMultiplier: 1.20000005
 --- !u!1 &836899242
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,11 +396,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798124136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621611a56b57b4fca9b589391d24cbb6, type: 3}
+  m_Script: {fileID: 11500000, guid: f1acdfe61be324860bd4943ed5c3616f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatValue: 1.61000001
-  intValue: 3
+  floatValue: 7.26000023
+  intValue: 2
   spaceUpThere: 
   dontForget: 
   textArea: 
@@ -418,7 +443,7 @@ GameObject:
   - 4: {fileID: 2007088265}
   - 114: {fileID: 2007088266}
   m_Layer: 0
-  m_Name: CustomInspector
+  m_Name: CustomClassInspector
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

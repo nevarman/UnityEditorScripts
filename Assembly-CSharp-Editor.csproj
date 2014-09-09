@@ -47,10 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CustomEditor\CustomClasEditor.cs" />
-     <Compile Include="Assets\Editor\CustomEditor\CustomInspectorExEditor.cs" />
      <Compile Include="Assets\Editor\CustomEditor\CustomTransfromEditor.cs" />
+     <Compile Include="Assets\Editor\CustomEditor\TouchActionEditor.cs" />
      <Compile Include="Assets\Editor\EditorWindow\CreateGameGrid.cs" />
-     <Compile Include="Assets\Editor\EditorWindow\EditorWin.cs" />
      <Compile Include="Assets\Editor\EditorWindow\FilterHierarcyEditor.cs" />
      <Compile Include="Assets\Editor\MainCameraIcon.cs" />
  <Reference Include="UnityEditor.Graphs">
@@ -58,6 +57,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{EC142C8F-7E5A-69E2-71F0-E5E300442C67}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{1A601C5A-69ED-C274-86B9-7B3784D07A44}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

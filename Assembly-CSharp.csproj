@@ -46,8 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AttributesEx.cs" />
-     <Compile Include="Assets\Scripts\CustomEditorEx.cs" />
+     <Compile Include="Assets\Scripts\CustomEditor\CustomEditorEx.cs" />
+     <Compile Include="Assets\Scripts\CustomEditor\TouchObjectControl.cs" />
+     <Compile Include="Assets\Scripts\DecorativeAttributes.cs" />
+     <Compile Include="Assets\Scripts\Extensions\TransfomExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{EC142C8F-7E5A-69E2-71F0-E5E300442C67}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

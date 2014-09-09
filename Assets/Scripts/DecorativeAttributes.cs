@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AttributesEx : MonoBehaviour {
+public class DecorativeAttributes : MonoBehaviour {
 	[Range(0f,10f)]
 	public float floatValue;
 

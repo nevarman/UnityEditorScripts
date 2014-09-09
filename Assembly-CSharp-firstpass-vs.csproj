@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{6FB91E82-4C17-8E53-0C49-59FFBD02CA1A}</ProjectGuid>
+	<ProjectGuid>{EC142C8F-7E5A-69E2-71F0-E5E300442C67}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,21 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\CustomEditor\CustomClasEditor.cs" />
-     <Compile Include="Assets\Editor\CustomEditor\CustomTransfromEditor.cs" />
-     <Compile Include="Assets\Editor\CustomEditor\TouchActionEditor.cs" />
-     <Compile Include="Assets\Editor\EditorWindow\CreateGameGrid.cs" />
-     <Compile Include="Assets\Editor\EditorWindow\FilterHierarcyEditor.cs" />
-     <Compile Include="Assets\Editor\MainCameraIcon.cs" />
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity4.5.2/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{EC142C8F-7E5A-69E2-71F0-E5E300442C67}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{1A601C5A-69ED-C274-86B9-7B3784D07A44}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+     <Compile Include="Assets\Plugins\iTween.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

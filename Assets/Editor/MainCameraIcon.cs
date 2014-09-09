@@ -36,7 +36,7 @@ class MainCameraIcon
 		Rect r = new Rect (selectionRect); 
 		r.x = r.width - 10;
 		r.width = 18;
-		if(id.Length>0)
+		if(id.Length >0 && id != null )
 		{
 			foreach(int i in id)
 			{
