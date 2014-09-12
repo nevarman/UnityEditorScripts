@@ -10,14 +10,13 @@ class MainCameraIcon
 	static MainCameraIcon ()
 	{
 		// Init
-		texture = AssetDatabase.LoadAssetAtPath ("Assets/Resources/cam.png", typeof(Texture2D)) as Texture2D;
+		texture = AssetDatabase.LoadAssetAtPath ("Assets/Editor/Icons/cam.png", typeof(Texture2D)) as Texture2D;
 		EditorApplication.update += onUpdate;
 		EditorApplication.hierarchyWindowItemOnGUI += hierarchWindowOnGUI;
 	}
 	
 	static void onUpdate ()
 	{
-
 		Camera[] cam = Object.FindObjectsOfType(typeof(Camera)) as Camera[];
 		if(cam != null)
 		{
@@ -27,7 +26,6 @@ class MainCameraIcon
 				id[i] = cam[i].gameObject.GetInstanceID();
 			}
 		}
-
 	}
 
 	static void hierarchWindowOnGUI (int instanceID, Rect selectionRect)
@@ -53,7 +51,8 @@ class MainCameraIcon
 					style.normal.textColor = Color.red;
 					
 					// draw the new colored label over the old one 
-					GUI.Label(selectionRect, o.name, style); 
+					if(o != null)
+						GUI.Label(selectionRect, o.name, style); 
 				}
 			}
 		}

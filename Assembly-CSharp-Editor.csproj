@@ -51,6 +51,9 @@
      <Compile Include="Assets\Editor\CustomEditor\TouchActionEditor.cs" />
      <Compile Include="Assets\Editor\EditorWindow\CreateGameGrid.cs" />
      <Compile Include="Assets\Editor\EditorWindow\FilterHierarcyEditor.cs" />
+     <Compile Include="Assets\Editor\EditorWindow\HierarchyIconEditor.cs" />
+     <Compile Include="Assets\Editor\EditorWindow\HierarchyIconManager.cs" />
+     <Compile Include="Assets\Editor\EditorWindow\WebViewWindow.cs" />
      <Compile Include="Assets\Editor\MainCameraIcon.cs" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>/Applications/Unity4.5.2/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>

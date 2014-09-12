@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-
 public class FilterHierarcyEditor : EditorWindow {
 
 	FilterOptions filterOptions = FilterOptions.Tag;
@@ -10,7 +9,7 @@ public class FilterHierarcyEditor : EditorWindow {
 	int layer = 0;
 	int objectCounter;
 	List<int> objectIndex = new List<int>();
-
+	
 	[MenuItem("Custom/Filter Hierarcy")]
 	static void Init()
 	{
@@ -19,6 +18,7 @@ public class FilterHierarcyEditor : EditorWindow {
 	}
 	void OnGUI () {
 		EditorGUILayout.Space();
+		EditorGUILayout.PrefixLabel("Filtering Options");
 		filterOptions =(FilterOptions) EditorGUILayout.EnumPopup("Filter By",filterOptions);
 		if(filterOptions == FilterOptions.Tag)
 		{
@@ -36,33 +36,49 @@ public class FilterHierarcyEditor : EditorWindow {
 				filterSelected(filterOptions);
 			}
 		}
-
+//		EditorGUILayout.PrefixLabel("Save and Load Options");
 		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();
-		if(GUILayout.Button("Select All Objects"))
+		if(Selection.objects.Length >= 1)
 		{
-			selectAll();
+			if(GUILayout.Button("Save Selection"))
+			{
+				int[] selectionIDs = Selection.instanceIDs;
+				var saveStr = string.Empty;
+				foreach( int i in selectionIDs)
+					saveStr += i.ToString() + ";";
+				saveStr = saveStr.TrimEnd(char.Parse(";"));
+				EditorPrefs.SetString("SelectedIDs",saveStr);
+			}
 		}
-
+		if(EditorPrefs.HasKey("SelectedIDs"))
+		{
+			if(GUILayout.Button("Load Selection"))
+			{
+			   	string[] strIDs= EditorPrefs.GetString("SelectedIDs").Split(char.Parse(";"));
+				int[] ids = new int[strIDs.Length];
+				for(var i = 0; i < strIDs.Length; i++)
+					ids[i] = int.Parse(strIDs[i]);
+				Selection.instanceIDs = ids;
+			}
+		}
 		EditorGUILayout.EndHorizontal();
-
 	}
 
-	void selectAll ()
+	void OnInspectorUpdate() {
+		Repaint();
+	}
+
+	Object[] selectAll ()
 	{
-		Object[] all = Object.FindObjectsOfType(typeof(GameObject)) as Object[];
-		Selection.objects = all;
+		return Object.FindObjectsOfType(typeof(GameObject)) as Object[];
 	}
 
 	void filterSelected (FilterOptions ops)
 	{
-		Object[] selected = Selection.objects;
-		// if nothing is selected select all by default
-		if(selected.Length < 1) 
-		{
-			selectAll();
-			selected = Selection.objects;
-		}
+
+		Object[] selected  = selectAll();
+		Selection.objects = selected;
 
 		objectCounter = 0;
 		objectIndex = new List<int>();
@@ -88,6 +104,7 @@ public class FilterHierarcyEditor : EditorWindow {
 		}
 		Selection.objects = newSelected;
 	}
+
 }
 enum FilterOptions
 {
