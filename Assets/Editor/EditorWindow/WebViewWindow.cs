@@ -11,7 +11,11 @@ public class WebViewWindow : EditorWindow {
 	{
 		wv  = (WebViewWindow)EditorWindow.GetWindow (typeof (WebViewWindow));
 		wv.Show();
-		w = new WebView((int)wv.position.width,(int)wv.position.height,true);
+		w =(WebView)ScriptableObject.CreateInstance(typeof(WebView)) as WebView;
+		w.InitWebView((int)wv.position.width,(int)wv.position.height,true);
+			//new WebView((int)wv.position.width,(int)wv.position.height,true);
+			//(WebView)ScriptableObject.CreateInstance(typeof(WebView)) as WebView;
+		wv.wantsMouseMove = true;
 		w.LoadURL("http://unity3d.com/unity");
 	}
 
@@ -25,7 +29,8 @@ public class WebViewWindow : EditorWindow {
 		}
 	}
 	void OnInspectorUpdate() {
-
-		w.Focus();
+		if(w != null )
+			w.Focus();
 	}
+
 }

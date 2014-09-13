@@ -11,7 +11,7 @@ public class CreateGameGrid : EditorWindow {
 	bool goRight = true;
 	bool goDown = true;
 
-	[MenuItem("Custom/MakeGrid")]
+	[MenuItem("Custom/Tut2-MakeGrid")]
 	static void Init()
 	{
 		CreateGameGrid grid  = (CreateGameGrid)EditorWindow.GetWindow (typeof (CreateGameGrid));

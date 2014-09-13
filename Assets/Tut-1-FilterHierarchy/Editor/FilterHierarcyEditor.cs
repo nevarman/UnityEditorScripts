@@ -8,9 +8,10 @@ public class FilterHierarcyEditor : EditorWindow {
 	string selectedTag = "Untagged";
 	int layer = 0;
 	int objectCounter;
+	bool filterInactive;
 	List<int> objectIndex = new List<int>();
 	
-	[MenuItem("Custom/Filter Hierarcy")]
+	[MenuItem("Custom/Tut1-Filter Hierarcy")]
 	static void Init()
 	{
 		FilterHierarcyEditor filter  = (FilterHierarcyEditor)EditorWindow.GetWindow (typeof (FilterHierarcyEditor));
@@ -19,6 +20,7 @@ public class FilterHierarcyEditor : EditorWindow {
 	void OnGUI () {
 		EditorGUILayout.Space();
 		EditorGUILayout.PrefixLabel("Filtering Options");
+		filterInactive = EditorGUILayout.Toggle("Filter Inactive",filterInactive);
 		filterOptions =(FilterOptions) EditorGUILayout.EnumPopup("Filter By",filterOptions);
 		if(filterOptions == FilterOptions.Tag)
 		{
@@ -71,13 +73,17 @@ public class FilterHierarcyEditor : EditorWindow {
 
 	Object[] selectAll ()
 	{
+		return Resources.FindObjectsOfTypeAll(typeof(GameObject)) as Object[];
+	}
+	Object[] selectActive ()
+	{
 		return Object.FindObjectsOfType(typeof(GameObject)) as Object[];
 	}
 
 	void filterSelected (FilterOptions ops)
 	{
 
-		Object[] selected  = selectAll();
+		Object[] selected  = filterInactive ? selectAll() : selectActive();
 		Selection.objects = selected;
 
 		objectCounter = 0;

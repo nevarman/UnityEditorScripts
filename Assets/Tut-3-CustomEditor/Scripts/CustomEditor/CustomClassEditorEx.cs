@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CustomEditorEx : MonoBehaviour {
+public class CustomClassEditorEx : MonoBehaviour {
 	public CustomClass customClass;
 	public CustomClass[] customClassList;
 	// Use this for initialization

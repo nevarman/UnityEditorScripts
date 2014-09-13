@@ -33,7 +33,7 @@ public class HierarchyIconManager : EditorWindow {
 		EditorApplication.projectWindowChanged += onProjectWindowChanged;
 	}
 
-	[MenuItem("Custom/Hierarch Icon Manager")]
+	[MenuItem("Custom/Tut4-Hierarch Icon Manager")]
 	static void Init()
 	{
 		HierarchyIconManager iconManager  = (HierarchyIconManager)EditorWindow.GetWindow (typeof (HierarchyIconManager));
