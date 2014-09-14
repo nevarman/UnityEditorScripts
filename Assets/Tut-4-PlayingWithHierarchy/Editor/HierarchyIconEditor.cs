@@ -42,14 +42,6 @@ class HierarchyIconEditor {
 				{
 					if(g.GetComponent<IconData>().id == nData.hierarchyIcon[i].objectId)
 					{
-						GUI.Label (r,nData.hierarchyIcon[i].icon); 
-						// create a style with same padding as normal labels. 
-						GUIStyle style = new GUIStyle(((GUIStyle)"Hi Label")); 
-						style.padding.left = EditorStyles.label.padding.left;
-						// choose new color 
-						style.normal.textColor = nData.hierarchyIcon[i].color;
-						// draw the new colored label over the old one 
-						GUI.Label(selectionRect, o.name, style); 
 						if(nData.hierarchyIcon[i].addBox)
 						{
 							// draw box
@@ -58,6 +50,14 @@ class HierarchyIconEditor {
 							bRect.height = bRect.height -1;
 							GUI.Box(bRect,string.Empty);
 						}
+						GUI.Label (r,nData.hierarchyIcon[i].icon); 
+						// create a style with same padding as normal labels. 
+						GUIStyle style = new GUIStyle(((GUIStyle)"Hi Label")); 
+						style.padding.left = EditorStyles.label.padding.left;
+						// choose new color 
+						style.normal.textColor = nData.hierarchyIcon[i].color;
+						// draw the new colored label over the old one 
+						GUI.Label(selectionRect, o.name, style); 
 					}
 				}
 			}

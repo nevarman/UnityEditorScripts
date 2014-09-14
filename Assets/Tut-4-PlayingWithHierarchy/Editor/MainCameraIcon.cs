@@ -10,7 +10,7 @@ class MainCameraIcon
 	static MainCameraIcon ()
 	{
 		// Init
-		texture = AssetDatabase.LoadAssetAtPath ("Assets/Editor/Icons/cam.png", typeof(Texture2D)) as Texture2D;
+		texture = AssetDatabase.LoadAssetAtPath ("Assets/Resources/Icons/cam.png", typeof(Texture2D)) as Texture2D;
 		EditorApplication.update += onUpdate;
 		EditorApplication.hierarchyWindowItemOnGUI += hierarchWindowOnGUI;
 	}

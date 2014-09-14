@@ -11,7 +11,7 @@ public class FilterHierarcyEditor : EditorWindow {
 	bool filterInactive;
 	List<int> objectIndex = new List<int>();
 	
-	[MenuItem("Custom/Tut1-Filter Hierarcy")]
+	[MenuItem("Custom/Tut2-Filter Hierarcy")]
 	static void Init()
 	{
 		FilterHierarcyEditor filter  = (FilterHierarcyEditor)EditorWindow.GetWindow (typeof (FilterHierarcyEditor));
@@ -19,6 +19,12 @@ public class FilterHierarcyEditor : EditorWindow {
 	}
 	void OnGUI () {
 		EditorGUILayout.Space();
+		GUI.color = Color.green;
+		if(GUILayout.Button("Go to tutorial page"))
+		{
+			Application.OpenURL("http://nevzatarman.com/");
+		}
+		GUI.color = Color.white;
 		EditorGUILayout.PrefixLabel("Filtering Options");
 		filterInactive = EditorGUILayout.Toggle("Filter Inactive",filterInactive);
 		filterOptions =(FilterOptions) EditorGUILayout.EnumPopup("Filter By",filterOptions);

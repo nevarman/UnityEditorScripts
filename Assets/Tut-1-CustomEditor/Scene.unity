@@ -250,7 +250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1798124138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &2007088266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,11 +311,11 @@ MonoBehaviour:
   customClass:
     name: Text
     color: {r: 1, g: 1, b: 1, a: 1}
-    state: 2
+    state: 0
   customClassList:
   - name: 1
     color: {r: .141176477, g: .0862745121, b: .486274511, a: 0}
     state: 0
   - name: 2
     color: {r: 1, g: 0, b: 0, a: 0}
-    state: 9
+    state: 10

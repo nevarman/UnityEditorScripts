@@ -80,6 +80,10 @@ public class HierarchyIconManager : EditorWindow {
 
 	void OnGUI()
 	{
+		if(!EditorGUIUtility.isProSkin)
+		{
+			EditorGUILayout.HelpBox("Colored and box bordered hierarchy icons doesn't looks good on non pro editor skin\nDisabled by default!",MessageType.Warning);
+		}
 		if(!isDatabaseSet)
 		{
 			GUI.color = Color.green;
@@ -122,9 +126,11 @@ public class HierarchyIconManager : EditorWindow {
 
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.BeginVertical();
-
-				colorSlotEdit = EditorGUILayout.ColorField("Update Color",colorSlotEdit);
-				addBoxBorderEdit = EditorGUILayout.Toggle("Box Border",addBoxBorderEdit);
+				if(EditorGUIUtility.isProSkin)
+				{
+					colorSlotEdit = EditorGUILayout.ColorField("Update Color",colorSlotEdit);
+					addBoxBorderEdit = EditorGUILayout.Toggle("Box Border",addBoxBorderEdit);
+				}
 
 				EditorGUILayout.EndVertical();
 				iconSlotEdit = (Texture2D)EditorGUILayout.ObjectField("Update Icon Texture",iconSlotEdit,typeof(Texture2D),false);
@@ -155,8 +161,11 @@ public class HierarchyIconManager : EditorWindow {
 				// show add ops
 				EditorGUILayout.BeginHorizontal();
 				EditorGUILayout.BeginVertical();
-				colorSlot = EditorGUILayout.ColorField("Color",colorSlot);
-				addBoxBorder = EditorGUILayout.Toggle("Add Box Border",addBoxBorder);
+				if(EditorGUIUtility.isProSkin)
+				{
+					colorSlot = EditorGUILayout.ColorField("Color",colorSlot);
+					addBoxBorder = EditorGUILayout.Toggle("Add Box Border",addBoxBorder);
+				}
 				EditorGUILayout.EndVertical();
 				iconSlot =(Texture2D)EditorGUILayout.ObjectField("Icon Texture",iconSlot,typeof(Texture2D),false);
 				EditorGUILayout.BeginVertical();

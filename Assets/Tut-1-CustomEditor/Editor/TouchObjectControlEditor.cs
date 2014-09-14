@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 [CustomEditor(typeof(TouchObjectControl))]
 [CanEditMultipleObjects()]
-public class TouchActionEditor : Editor {
+public class TouchObjectControlEditor : Editor {
 
 	TouchObjectControl touchObjectControl;
 	TouchAction touchAction;
@@ -102,7 +102,14 @@ public class TouchActionEditor : Editor {
 			break;
 		default:break;
 		}
-
+		// urls 
+		EditorGUILayout.Space();
+		GUI.color = Color.green;
+		if(GUILayout.Button("Go to tutorial page",EditorStyles.miniButton))
+		{
+			Application.OpenURL("http://wp.me/p3azza-2E");
+		}
+		GUI.color = Color.white;
 	}
 
 
