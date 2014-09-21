@@ -20,6 +20,7 @@ public class TouchObjectControlEditor : Editor {
 	}
 	public override void OnInspectorGUI ()
 	{
+	//	DrawDefaultInspector();
 		checkMouse();
 		touchObjectControl.worldMode = (TouchObjectControl.World)EditorGUILayout.EnumPopup("World mode",touchObjectControl.worldMode);
 		if(touchObjectControl.worldMode == TouchObjectControl.World.World2D && !Camera.main.isOrthoGraphic)
@@ -34,7 +35,7 @@ public class TouchObjectControlEditor : Editor {
 		}
 		EditorGUILayout.EndHorizontal();
 
-		// Can make property drawer below. But if you dont want to mess with Rect's it's easier to do like this.
+		// Toolbar labels here
 		string[] menuOptions = new string[3];
 
 		menuOptions[0] = "Drag";
@@ -102,7 +103,9 @@ public class TouchObjectControlEditor : Editor {
 			break;
 		default:break;
 		}
-		// urls 
+
+		// urls for tutorial page 
+		// Can delete this
 		EditorGUILayout.Space();
 		GUI.color = Color.green;
 		if(GUILayout.Button("Go to tutorial page",EditorStyles.miniButton))
@@ -110,9 +113,12 @@ public class TouchObjectControlEditor : Editor {
 			Application.OpenURL("http://wp.me/p3azza-2E");
 		}
 		GUI.color = Color.white;
+		//
 	}
 
-
+	/// <summary>
+	/// Checks the mouse.If we are making changes saves for undo operation
+	/// </summary>
 	void checkMouse() {
 		Event e = Event.current;
 		if ((e.button == 0 && e.isMouse) ||(e.keyCode == KeyCode.KeypadEnter)) {
