@@ -106,9 +106,13 @@ public class TouchObjectControlEditor : Editor {
 
 		// urls for tutorial page 
 		// Can delete this
+		GUIStyle buttonStyle = new GUIStyle (GUI.skin.button); 
+		// add some margins to button, looks nicer!
+		buttonStyle.margin.left = buttonStyle.border.left +( Screen.width/2 - 100);
+		buttonStyle.margin.right =buttonStyle.border.right +( Screen.width/2 - 100);
 		EditorGUILayout.Space();
 		GUI.color = Color.green;
-		if(GUILayout.Button("Go to tutorial page",EditorStyles.miniButton))
+		if(GUILayout.Button("Go to tutorial page",buttonStyle))
 		{
 			Application.OpenURL("http://wp.me/p3azza-2E");
 		}

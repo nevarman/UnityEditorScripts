@@ -30,12 +30,14 @@ class HierarchyIconEditor {
 	{
 		if(isDatabaseSet)
 		{
-			// place the icon to the right
+			// icon rect
 			Rect r = new Rect (selectionRect); 
 			r.x = r.width - 10;
 			r.width = 18;
+		
 			Object o = EditorUtility.InstanceIDToObject(instanceID);
 			GameObject g = (GameObject)o as GameObject;
+
 			if(g != null && g.GetComponent<IconData>())
 			{
 				for(int i = 0; i <nData.hierarchyIcon.Count; i++)
@@ -50,6 +52,7 @@ class HierarchyIconEditor {
 							bRect.height = bRect.height -1;
 							GUI.Box(bRect,string.Empty);
 						}
+						// draw icon texture
 						GUI.Label (r,nData.hierarchyIcon[i].icon); 
 						// create a style with same padding as normal labels. 
 						GUIStyle style = new GUIStyle(((GUIStyle)"Hi Label")); 
@@ -57,6 +60,7 @@ class HierarchyIconEditor {
 						// choose new color 
 						style.normal.textColor = nData.hierarchyIcon[i].color;
 						// draw the new colored label over the old one 
+						if(g.activeInHierarchy)
 						GUI.Label(selectionRect, o.name, style); 
 					}
 				}
