@@ -3,23 +3,31 @@ using System.Collections;
 using UnityEditor;
 [InitializeOnLoad]
 public class HierarchQuickSetActive {
-
+	/// <summary>
+	/// Initializer <see cref="HierarchQuickSetActive"/> class.
+	/// </summary>
 	static HierarchQuickSetActive ()
 	{
 		EditorApplication.hierarchyWindowItemOnGUI += hierarchWindowOnGUI;
 	}
-
+	/// <summary>
+	/// Editor delegate callback
+	/// </summary>
+	/// <param name="instanceID">Instance id.</param>
+	/// <param name="selectionRect">Selection rect.</param>
 	static void hierarchWindowOnGUI (int instanceID, Rect selectionRect)
 	{
 		// make rectangle
 		Rect r = new Rect (selectionRect); 
-		r.x = r.width - 28;
+		r.x = r.width - 10;
 		r.width = 18;
 		// get objects
 		Object o = EditorUtility.InstanceIDToObject(instanceID);
 		GameObject g = (GameObject)o as GameObject;
 		// drag toggle gui
 		g.SetActive(GUI.Toggle(r,g.activeSelf,string.Empty));
+
+		// Testing some stuff
 
 //		if(g.GetComponent<MeshRenderer>()!=null)
 //		{

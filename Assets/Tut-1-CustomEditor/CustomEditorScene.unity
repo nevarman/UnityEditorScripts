@@ -349,7 +349,9 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2056621228}
-  m_Text: "Hello World!\nThis is multiline!\x03"
+  m_Text: 'Text
+
+    Second line!'
   m_OffsetZ: 0
   m_CharacterSize: .200000003
   m_LineSpacing: 1

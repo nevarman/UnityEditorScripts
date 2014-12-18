@@ -32,7 +32,7 @@ class HierarchyIconEditor {
 		{
 			// icon rect
 			Rect r = new Rect (selectionRect); 
-			r.x = r.width - 10;
+			r.x = r.width - 28;
 			r.width = 18;
 		
 			Object o = EditorUtility.InstanceIDToObject(instanceID);
