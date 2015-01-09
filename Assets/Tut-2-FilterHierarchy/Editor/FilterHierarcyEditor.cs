@@ -2,6 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+
+enum FilterOptions
+{
+	Tag,Layer,Both
+}
 public class FilterHierarcyEditor : EditorWindow {
 
 	FilterOptions filterOptions = FilterOptions.Tag;
@@ -40,6 +45,15 @@ public class FilterHierarcyEditor : EditorWindow {
 		{
 			layer = EditorGUILayout.LayerField("Select Layer",layer);
 			if(GUILayout.Button("Filter by Layer"))
+			{
+				filterSelected(filterOptions);
+			}
+		}
+		else 
+		{
+			selectedTag = EditorGUILayout.TagField("Select Tag",selectedTag);
+			layer = EditorGUILayout.LayerField("Select Layer",layer);
+			if(GUILayout.Button("Filter by All"))
 			{
 				filterSelected(filterOptions);
 			}
@@ -108,6 +122,11 @@ public class FilterHierarcyEditor : EditorWindow {
 				objectCounter ++;
 				objectIndex.Add(i);
 			}
+			else if(ops == FilterOptions.Both && g.layer == layer && g.tag == selectedTag)
+			{
+				objectCounter ++;
+				objectIndex.Add(i);
+			}
 		}
 		Object[] newSelected = new Object[objectCounter];
 		for(int i = 0; i< objectCounter; i++)
@@ -118,7 +137,4 @@ public class FilterHierarcyEditor : EditorWindow {
 	}
 
 }
-enum FilterOptions
-{
-	Tag,Layer
-}
+

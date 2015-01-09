@@ -292,7 +292,7 @@ GameObject:
   - 33: {fileID: 1218361874}
   - 135: {fileID: 1218361873}
   - 23: {fileID: 1218361872}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
