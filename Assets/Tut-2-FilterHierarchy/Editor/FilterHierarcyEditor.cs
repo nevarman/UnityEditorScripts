@@ -79,8 +79,8 @@ public class FilterHierarcyEditor : EditorWindow {
 			}
 			GUI.color = Color.white;
 		}
-//		EditorGUILayout.PrefixLabel("Save and Load Options");
-		EditorGUILayout.Space();
+		EditorGUILayout.PrefixLabel("Save and Load Options");
+//		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();
 		if(Selection.objects.Length >= 1)
 		{
@@ -124,7 +124,6 @@ public class FilterHierarcyEditor : EditorWindow {
 	void filterSelected (FilterOptions ops)
 	{
 		Object[] selected  = selectObjects();
-
 		objectIndex = new List<int>();
 		for(int i = 0; i< selected.Length; i++)
 		{
@@ -149,8 +148,9 @@ public class FilterHierarcyEditor : EditorWindow {
 			newSelected[i] = selected[objectIndex[i]];
 		}
 		Selection.objects = newSelected;
-		// set filter mode on option to draw button
+		// set filter mode on option to draw a gui button
 		isFilterModeOn = true;
+		// 
 		for(int i = 0; i<selected.Length; i++)
 		{
 			// change hide flags
