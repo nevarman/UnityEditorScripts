@@ -79,7 +79,8 @@ public class FilterHierarcyEditor : EditorWindow {
 			}
 			GUI.color = Color.white;
 		}
-		EditorGUILayout.PrefixLabel("Save and Load Options");
+//		EditorGUILayout.Space();
+		EditorGUILayout.LabelField("Save and Load Options");
 //		EditorGUILayout.Space();
 		EditorGUILayout.BeginHorizontal();
 		if(Selection.objects.Length >= 1)

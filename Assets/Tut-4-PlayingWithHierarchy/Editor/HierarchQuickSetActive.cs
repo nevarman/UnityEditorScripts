@@ -3,12 +3,22 @@ using System.Collections;
 using UnityEditor;
 [InitializeOnLoad]
 public class HierarchQuickSetActive {
+	private static bool isEnabled = false;
 	/// <summary>
 	/// Initializer <see cref="HierarchQuickSetActive"/> class.
 	/// </summary>
 	static HierarchQuickSetActive ()
 	{
 		EditorApplication.hierarchyWindowItemOnGUI += hierarchWindowOnGUI;
+		isEnabled = EditorPrefs.GetBool("quick_setactive",true);
+	}
+	[MenuItem("Tools/QuickSetActive/Toggle")]
+	static void ToggleEnable(){
+		isEnabled = !isEnabled;
+	}
+	[MenuItem("Tools/QuickSetActive/Go to tutorial")]
+	static void OpenTutorial(){
+		Application.OpenURL("http://nevzatarman.com/2014/12/19/unity-editor-scripting-quick-setactive/");
 	}
 	/// <summary>
 	/// Editor delegate callback
@@ -17,6 +27,7 @@ public class HierarchQuickSetActive {
 	/// <param name="selectionRect">Selection rect.</param>
 	static void hierarchWindowOnGUI (int instanceID, Rect selectionRect)
 	{
+		if(!isEnabled )return;
 		// make rectangle
 		Rect r = new Rect (selectionRect); 
 		r.x = r.width - 10;
@@ -26,23 +37,6 @@ public class HierarchQuickSetActive {
 		GameObject g = (GameObject)o as GameObject;
 		// drag toggle gui
 		g.SetActive(GUI.Toggle(r,g.activeSelf,string.Empty));
-
-		// Testing some stuff
-
-//		if(g.GetComponent<MeshRenderer>()!=null)
-//		{
-//			Texture2D mIcon = AssetPreview.GetMiniTypeThumbnail(typeof(MeshRenderer));
-//			Rect icon = new Rect (selectionRect); 
-//			Rect rend = new Rect (selectionRect); 
-//			icon.x = icon.width - 65;
-//			icon.width = 18;
-//			rend.x = rend.width - 48;
-//			rend.width = 18;
-//			GUI.Label(icon,mIcon);
-//			g.renderer.enabled = GUI.Toggle(rend,g.renderer.enabled,string.Empty);
-//			GUI.Label(rend,"---");
-//		}
-
 
 	}
 }

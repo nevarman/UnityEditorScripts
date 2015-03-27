@@ -23,7 +23,7 @@ public class TouchObjectControlEditor : Editor {
 	//	DrawDefaultInspector();
 		checkMouse();
 		touchObjectControl.worldMode = (TouchObjectControl.World)EditorGUILayout.EnumPopup("World mode",touchObjectControl.worldMode);
-		if(touchObjectControl.worldMode == TouchObjectControl.World.World2D && !Camera.main.isOrthoGraphic)
+		if(touchObjectControl.worldMode == TouchObjectControl.World.World2D && !Camera.main.orthographic)
 		{
 			EditorGUILayout.HelpBox("Your camera is not on ortographic!",MessageType.Warning);
 		}
